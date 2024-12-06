@@ -25,8 +25,11 @@ Carry = AB + ACin + BCin
 ![image](https://github.com/naavaneetha/FULL_ADDER_SUBTRACTOR/assets/154305477/0f30ba51-5ffb-4198-845f-18e054f675e7)
 
 **Figure -1 FULL ADDER**
+![WhatsApp Image 2024-12-06 at 04 40 13_d219bef1](https://github.com/user-attachments/assets/e9e7c805-40aa-45b5-91d6-d09191433283)
 
 **Full Subtractor**
+![WhatsApp Image 2024-12-06 at 04 40 44_411b3e0e](https://github.com/user-attachments/assets/0982113c-cbf0-4107-9808-0b4ac3253d54)
+
 
 A full subtractor is a combinational circuit that performs subtraction involving three bits, namely minuend, subtrahend, and borrow-in . It accepts three inputs: minuend, subtrahend and a borrow bit and it produces two outputs: difference and borrow.
 
@@ -38,18 +41,59 @@ Borrow out = A'Bin + A'B + BBin
 
 **Truthtable**
 
+
+
 **Procedure**
 
 Write the detailed procedure here
 
 **Program:**
-
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+````
+/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. 
+Developed by:24900650 
+RegisterNumber:subashree karthikeyan*/
+````
+```
+module EXP04(sum,cout,a,b,cin);
+output sum;
+output cout;
+input a;
+input b;
+input cin;
+wire s1,c1,c2;
+xor(s1,a,b);
+and(c1,a,b);
+xor(sum,s1,cin);
+and(c2,s1,cin);
+or(cout,c2,c1);
+endmodule
+```
+```
+module EXP04 (df,bo,a,b,bin);
+output df;
+output bo;
+input a;
+input b;
+input bin;
+wire w1,w2,w3;
+assign w1=a^b;
+assign w2=(~a&b);
+assign w3=(~w1&bin);
+assign df=w1^bin;
+assign bo=w2|w3;
+endmodule
+```
 
 **RTL Schematic**
+![WhatsApp Image 2024-12-06 at 04 42 05_73882d7f](https://github.com/user-attachments/assets/24ad7d06-c23c-4789-9854-1fac4dd599f5)
+![WhatsApp Image 2024-12-06 at 04 42 45_eef8390f](https://github.com/user-attachments/assets/3402546b-ef28-4a8f-a370-5083eafb20d7)
 
 **Output Timing Waveform**
+
+![WhatsApp Image 2024-12-06 at 04 43 26_c4872b67](https://github.com/user-attachments/assets/73740b37-0288-423e-b27e-8f80a8d83107)
+
+
+![WhatsApp Image 2024-12-06 at 04 44 09_87c1e75e](https://github.com/user-attachments/assets/f569bb3c-86b1-4dd2-aaf1-c8127ed853a0)
 
 **Result:**
 
